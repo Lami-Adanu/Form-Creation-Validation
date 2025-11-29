@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
     var form = document.getElementById('registration-form');
-    var feedBackDiv = document.getElementById('form-feedback');
+    var feedbackDiv = document.getElementById('form-feedback');
 
     form.addEventListener("submit",function(event){
         event.preventDefault();
@@ -27,17 +27,14 @@ document.addEventListener("DOMContentLoaded", function(){
             messages.push('Password must be at least 8 characters long');
         }
 
-        feedBackDiv.style.display='block';
+        feedbackDiv.style.display='block';
         if(isValid){
-            feedBackDiv.textContent="Registration successful!";
-            feedBackDiv.style.color="#28a745";
+            feedbackDiv.textContent="Registration successful!";
+            feedbackDiv.style.color="#28a745";
         }else{
-            errors = '';
-            for(x = 0; x < messages.length; x++){
-                errors = errors + messages[x] + '<br>';
-            }
-            feedBackDiv.innerHTML=errors;
-           feedBackDiv.style.color="#dc3545"; 
+            errors = messages.join('<br>');
+            feedbackDiv.innerHTML=errors;
+           feedbackDiv.style.color="#dc3545"; 
         }
     })
 })
