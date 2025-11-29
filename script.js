@@ -10,21 +10,21 @@ document.addEventListener("DOMContentLoaded", function(){
         var password = document.getElementById('password').value.trim();
 
         var isValid = true;
-        var message = [];
+        var messages = [];
 
         if(username.length < 3){
             isValid = false;
-            message.push('Username can not be lass than 3 charaters');
+            messages.push('Username can not be lass than 3 charaters');
         }
 
         if(!email.includes('@') || !email.includes('.')){
             isValid = false;
-            message.push('Plase enter a valid email address');
+            messages.push('Plase enter a valid email address');
         }
 
         if(password.length < 8){
             isValid = false;
-            message.push('Password must be at least 8 characters long');
+            messages.push('Password must be at least 8 characters long');
         }
 
         feedBackDiv.style.display='block';
@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", function(){
             feedBackDiv.style.color="#28a745";
         }else{
             errors = '';
-            for(x = 0; x < message.length; x++){
-                errors = errors + message[x] + '<br>';
+            for(x = 0; x < messages.length; x++){
+                errors = errors + messages[x] + '<br>';
             }
             feedBackDiv.innerHTML=errors;
            feedBackDiv.style.color="#dc3545"; 
